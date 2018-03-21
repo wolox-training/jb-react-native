@@ -1,15 +1,24 @@
 $title-decoration-height: 90px;
 $title-decoration-width: 100px;
 
-h2 {
-  font-size: $text-big; 
+.title {
+  font-size: $text-big;
+  margin: 100px 50px 50px 200px;  
+  position: relative;
+  
+  &::before {
+    background: url('assets/triangle.svg') no-repeat;
+    content: '';
+    height: $title-decoration-height;
+    left: -50px;
+    position: absolute;
+    top: -35px;
+    width: $title-decoration-width;
+    z-index: -100;
+  }
 }
-
-img {
-  height: $title-decoration-height;
-  width: $title-decoration-width;
-} 
 
 div {
   display: flex;
+  flex-wrap: wrap;
 }

@@ -1,12 +1,7 @@
-$text-big: 24px; 
-$text-medium: 16px;
-$text-small: 12px;
-
-$cerulean: #00ADEE;
-$earls-green: #BED23C;
-$silver : #C4C4C4;
-
 @import 'equalizer';
-@import 'styles';
+
+@import 'variables/colors';
+@import 'variables/sizes';
+
 @import 'titles';
-@import 'tech.scss';
+@import 'tech';

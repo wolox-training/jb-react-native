@@ -1,20 +1,51 @@
-h3 {
+.title-tech {
   font-size: $text-medium;   
   padding: 10px 10px 10px 10px;
 }
 
-.title-bold{
-    font-weight: bold;
+.bold {
+  font-weight: bold;
 }
 
-.tech-panel{
-    background-color: $earls-green;
-    border: solid $earls-green;
+.tech-panel {
+  align-items: center;
+  background-color: $earls-green;
+  border: solid $earls-green;
+  border-radius: 5px;
+  flex-direction: column;
+  margin: 20px 20px 20px 20px;
+  padding: 10px 10px 10px 10px;
+  position: relative;
+  text-align: center;
+  width: 220px;
+  height: 300px;
+
+  &::before {
+    border: thin solid $earls-green;
     border-radius: 5px;
-    flex-direction: column;
-    margin: 20px 20px 20px 20px;
-    padding: 10px 10px 10px 10px;
-    width: 200px;
+    content: '';
+    left: -15px;
+    position: absolute;
+    top: -15px;
+    width: 220px;
+    height: 300px;
+    z-index: -100;
+  }
+}
+
+.tech-logo {
+  height: 100px;
+  width: 100px;
+}
+
+.container {
+  margin: auto;  
+  flex-direction: column; 
+  max-width: 80%;
+}
+
+.tech-container {  
+  margin: 0 0 0 230px; 
 }
 
   
