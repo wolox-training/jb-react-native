@@ -7,7 +7,22 @@
   font-weight: bold;
 }
 
+%size-tech {
+  width: 220px;
+  height: 300px;
+}
+
+%style-border {
+  @extend %size-tech;
+  border: thin solid $earls-green;
+  border-radius: 5px;
+  content: '';
+  position: absolute;
+  z-index: -100;    
+}
+
 .tech-panel {
+  @extend %size-tech;
   align-items: center;
   background-color: $earls-green;
   border: solid $earls-green;
@@ -17,19 +32,20 @@
   padding: 10px 10px 10px 10px;
   position: relative;
   text-align: center;
-  width: 220px;
-  height: 300px;
 
   &::before {
-    border: thin solid $earls-green;
-    border-radius: 5px;
-    content: '';
-    left: -15px;
-    position: absolute;
-    top: -15px;
-    width: 220px;
-    height: 300px;
-    z-index: -100;
+    @extend %style-border;
+    left: -10px;
+    top: -10px;
+       
+  }  
+
+  &:hover {
+    &::before {
+      @extend %style-border;
+      left: 5px;
+      top: 5px;
+    }
   }
 }
 
