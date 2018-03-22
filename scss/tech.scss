@@ -1,6 +1,6 @@
 .title-tech {
   font-size: $text-medium;   
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
 }
 
 .bold {
@@ -14,7 +14,7 @@
 
 %style-border {
   @extend %size-tech;
-  border: thin solid $earls-green;
+  border: 1px solid $earls-green;
   border-radius: 5px;
   content: '';
   position: absolute;
@@ -25,11 +25,10 @@
   @extend %size-tech;
   align-items: center;
   background-color: $earls-green;
-  border: solid $earls-green;
   border-radius: 5px;
   flex-direction: column;
-  margin: 20px 20px 20px 20px;
-  padding: 10px 10px 10px 10px;
+  margin: 20px;
+  padding: 10px;
   position: relative;
   text-align: center;
 
@@ -37,12 +36,10 @@
     @extend %style-border;
     left: -10px;
     top: -10px;
-       
   }  
 
   &:hover {
     &::before {
-      @extend %style-border;
       left: 5px;
       top: 5px;
     }
@@ -55,13 +52,11 @@
 }
 
 .container {
-  margin: auto;  
+  margin: 0 auto;  
   flex-direction: column; 
-  max-width: 80%;
+  max-width: 70%;
 }
 
 .tech-container {  
-  margin: 0 0 0 230px; 
+  margin: auto;
 }
-
-  

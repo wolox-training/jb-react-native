@@ -3,7 +3,7 @@ $title-decoration-width: 100px;
 
 .title {
   font-size: $text-big;
-  margin: 100px 50px 50px 200px;  
+  margin: 100px 0 50px 0;  
   position: relative;
   
   &::before {
