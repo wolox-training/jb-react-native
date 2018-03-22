@@ -24,7 +24,7 @@
 }
 
 .logo-footer{
-    fill: white;
-    width: auto;
-    height: 50px;
+    @extend %font-color;
+    font-size: $text-giant;
+    text-align: center;
 }
