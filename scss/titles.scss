@@ -17,3 +17,10 @@ $title-decoration-width: 100px;
     z-index: -100;
   }
 }
+
+@media only screen and (max-width: 1024px) {
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+}

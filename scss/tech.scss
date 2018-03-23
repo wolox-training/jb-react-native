@@ -8,7 +8,7 @@
 }
 
 %size-tech {
-  height: auto;
+  height: 300px;
   width: 220px;
 }
 
@@ -65,4 +65,34 @@
   border-right: 2px solid $earls-green;
   height: 535px;
   justify-content: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+ 
+    :first-child {
+      grid-row: 1;
+    } 
+
+    :last-child {
+      border-bottom: 0px;
+    } 
+  }
+
+  .border {
+    border-right: 0px;
+    height: auto;
+  }
+
+  .tech-panel {
+    border-bottom: 2px solid $earls-green;
+    justify-self: center;  
+  }
+
+  .container {
+    justify-self: center;
+    justify-content: center;
+    max-width: 100%;
+  }
 }
