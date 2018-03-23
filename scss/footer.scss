@@ -1,5 +1,5 @@
 %font-color {
-    color: white;
+  color: white;
 }
 
 .footer {
@@ -11,20 +11,20 @@
 }
 
 .title-footer {
-    @extend %font-color;
-    font-size: $text-medium;
-    text-align: center;
-    padding: 20px;
+  @extend %font-color;
+  font-size: $text-medium;
+  padding: 20px;
+  text-align: center;
 }
 
 .copyright {
-    @extend %font-color;
-    font-size: $text-small;
-    text-align: right;
+  @extend %font-color;
+  font-size: $text-small;
+  text-align: right;
 }
 
 .logo-footer{
-    @extend %font-color;
-    font-size: $text-giant;
-    text-align: center;
+  @extend %font-color;
+  font-size: $text-giant;
+  text-align: center;
 }
