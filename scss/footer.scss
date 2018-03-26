@@ -1,5 +1,5 @@
 %font-color {
-  color: white;
+  color: $white;
 }
 
 .footer {
@@ -13,8 +13,9 @@
 .title-footer {
   @extend %font-color;
   font-size: $text-medium;
-  padding: 20px;
   text-align: center;
+  text-transform: uppercase;
+  padding: 20px;
 }
 
 .copyright {
