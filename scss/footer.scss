@@ -1,5 +1,5 @@
 %font-color {
-  color: white;
+  color: $white;
 }
 
 .footer {
@@ -14,6 +14,7 @@
   @extend %font-color;
   font-size: $text-medium;
   text-align: center;
+  text-transform: uppercase;
   padding: 20px;
 }
 
