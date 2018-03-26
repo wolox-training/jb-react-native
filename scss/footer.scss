@@ -1,0 +1,31 @@
+%font-color {
+  color: $white;
+}
+
+.footer {
+  align-content: center;    
+  background-color: $cerulean;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.title-footer {
+  @extend %font-color;
+  font-size: $text-medium;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 20px;
+}
+
+.copyright {
+  @extend %font-color;
+  font-size: $text-small;
+  text-align: right;
+}
+
+.logo-footer{
+  @extend %font-color;
+  font-size: $text-giant;
+  text-align: center;
+}

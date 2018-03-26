@@ -55,9 +55,10 @@
   margin: 0 auto;  
   flex-direction: column; 
   max-width: 1050px;
+  padding-top: 80px;
 }
 
-.tech-container {
+.display-wrap {
   display: flex;
   flex-wrap: wrap;
 }
