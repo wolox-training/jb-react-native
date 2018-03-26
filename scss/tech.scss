@@ -68,8 +68,10 @@
   .grid {
     grid-template-columns: 1fr;
  
-    :first-child {
+    & > :first-child {
+      border-right: 0px;
       grid-row: 1;
+      padding-right: 10px; 
     } 
 
     :last-child {
