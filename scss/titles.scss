@@ -18,3 +18,9 @@ $title-decoration-width: 100px;
   }
 }
 
+@media only screen and (max-width: 1024px) {
+  .center {
+    display: flex;
+    justify-content: center;
+  }
+}

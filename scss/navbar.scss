@@ -10,11 +10,17 @@
 }
 
 .logo-wolox {
-  width: 200px;
   height: 80px;
+  width: 200px;
 }
 
 .title-navbar {
   font-size: $text-big;
   margin: 10px;  
+}
+
+@media only screen and (max-width: 1024px) {
+  .title-navbar {
+    display: none;    
+  }
 }
