@@ -1,0 +1,74 @@
+@import './src/variables/colors';
+@import './src/variables/sizes';
+
+.book-logo {
+  height: $book-logo-height;
+  position: relative;
+  width: $book-logo-width; 
+}
+
+.book-title {
+  font: $text-medium Roboto-Bold;
+}
+
+.book-author {
+  font: $text-small Roboto-Regular;
+}
+
+.grid {
+  align-items: center;
+  display: grid;
+  grid-gap: 65px 70px;
+  grid-template-columns: repeat(4, 128px);
+  justify-content: center;
+  padding: 65px 0;
+  position: relative;
+  text-align: left;
+
+  & > ::before {
+    background: url('/assets/default_book.svg') no-repeat;
+    background-color: $alto;
+    content: '';
+    height: $not-found-img-book;
+    padding: 54px 27px;
+    position: absolute;
+    width: $not-found-img-book;
+    z-index: -1;
+  }
+}
+
+.filter {
+  background: $wild-sand;
+  border: none;
+  color: $dusty-gray;
+  font: italic $text-medium Roboto-Italic;
+  height: $filter-height;
+  width: $filter-width;
+  padding-left: 12px;
+}
+
+.filter-margin {
+  margin-right: 28px;
+}
+
+.search {
+  &::after {
+    align-content: center;
+    background: url('./search.svg') no-repeat;
+    background-color: $atlantis;
+    content: '';
+    height: $search-logo;
+    justify-content: center;
+    padding: 7px;
+    position: absolute;
+    width: $search-logo;
+  }  
+}
+
+.display-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 722px;
+  padding-top: 143px;
+}
