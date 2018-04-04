@@ -6,4 +6,4 @@ $book-logo-width: 128px;
 $filter-height: 38px;
 $filter-width: 238px;
 $not-found-img-book: 75px;
-$search-logo: 24px;
+$search-logo: 40px;

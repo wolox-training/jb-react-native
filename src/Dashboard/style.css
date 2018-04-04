@@ -4,7 +4,7 @@
   width: 128px; }
 
 .book-title {
-  font: 14px Roboto-Bold; }
+  font: bold 14px Roboto-Bold; }
 
 .book-author {
   font: 12px Roboto-Regular; }
@@ -19,7 +19,7 @@
   position: relative;
   text-align: left; }
   .grid > ::before {
-    background: url("/assets/default_book.svg") no-repeat;
+    background: url(../assets/default_book.svg) center no-repeat;
     background-color: #D8D8D8;
     content: '';
     height: 75px;
@@ -40,16 +40,12 @@
 .filter-margin {
   margin-right: 28px; }
 
-.search::after {
-  align-content: center;
-  background: url("./search.svg") no-repeat;
+.search {
   background-color: #A5CD39;
-  content: '';
-  height: 24px;
-  justify-content: center;
-  padding: 7px;
+  border: none;
+  height: 40px;
   position: absolute;
-  width: 24px; }
+  width: 40px; }
 
 .display-wrap {
   display: flex;

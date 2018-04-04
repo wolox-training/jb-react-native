@@ -1,6 +1,8 @@
 @import './src/variables/colors';
 @import './src/variables/sizes';
 
+//import logo from './logo.png';
+
 .book-logo {
   height: $book-logo-height;
   position: relative;
@@ -8,7 +10,7 @@
 }
 
 .book-title {
-  font: $text-medium Roboto-Bold;
+  font: bold $text-medium Roboto-Bold;
 }
 
 .book-author {
@@ -26,7 +28,7 @@
   text-align: left;
 
   & > ::before {
-    background: url('/assets/default_book.svg') no-repeat;
+    background: url(../assets/default_book.svg) center no-repeat;
     background-color: $alto;
     content: '';
     height: $not-found-img-book;
@@ -52,17 +54,11 @@
 }
 
 .search {
-  &::after {
-    align-content: center;
-    background: url('./search.svg') no-repeat;
-    background-color: $atlantis;
-    content: '';
-    height: $search-logo;
-    justify-content: center;
-    padding: 7px;
-    position: absolute;
-    width: $search-logo;
-  }  
+  background-color: $atlantis;
+  border: none;
+  height: 40px; 
+  position: absolute;
+  width: 40px;
 }
 
 .display-wrap {

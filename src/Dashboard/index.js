@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import books from './books';
 import './style.css';
+import logo from '../assets/search.svg';
 
 class BooksList extends Component {
   render() {
@@ -23,11 +24,13 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: '',
+      filter: ''
     };
 
     this.handleSelectChange = this.handleSelectChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleSelectChange(event) {
@@ -35,19 +38,20 @@ class Dashboard extends Component {
   }
 
   handleInputChange(event) {
-    
     this.setState({ value: event.target.value});
-    var updatedList = books;
+  }
 
-    if (this.state.filter === 'title') {
-      updatedList = updatedList.filter (book => 
-        book.title.toLowerCase().search(event.target.value.toLowerCase()) !== -1);
-    } else if (this.state.filter === 'author') {
-      updatedList = updatedList.filter (book => 
-        book.author.toLowerCase().search(event.target.value.toLowerCase()) !== -1);
-    } 
-   
-    this.setState({items: updatedList});
+  handleClick(event) {
+    if (event.key === 'Enter' | event.type === "click") {
+      var updatedList = books;
+      
+      if (this.state.filter !== '') {
+        updatedList = updatedList.filter (book => 
+            book[this.state.filter].toLowerCase().search(this.state.value.toLowerCase()) !== -1);
+      }
+
+      this.setState({items: updatedList});
+    }
   }
 
   componentWillMount() {
@@ -63,8 +67,9 @@ class Dashboard extends Component {
             <option value="title">Nombre</option>
             <option value="author">Autor</option>
           </select>
-          <div className="search">
-            <input className="filter" name="value" value={this.state.value} onChange={this.handleInputChange} placeholder="Buscar..."></input>
+          <div>
+            <input className="filter" name="value" value={this.state.value} onChange={this.handleInputChange} onKeyPress={this.handleClick} placeholder="Buscar..."></input>
+            <button className="search" onClick={this.handleClick}><img src={logo} alt="logo"/></button>
           </div>
         </div>
         <BooksList books={this.state.items}/>
