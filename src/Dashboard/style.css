@@ -1,0 +1,59 @@
+.book-logo {
+  height: 182px;
+  position: relative;
+  width: 128px; }
+
+.book-title {
+  font: 14px Roboto-Bold; }
+
+.book-author {
+  font: 12px Roboto-Regular; }
+
+.grid {
+  align-items: center;
+  display: grid;
+  grid-gap: 65px 70px;
+  grid-template-columns: repeat(4, 128px);
+  justify-content: center;
+  padding: 65px 0;
+  position: relative;
+  text-align: left; }
+  .grid > ::before {
+    background: url("/assets/default_book.svg") no-repeat;
+    background-color: #D8D8D8;
+    content: '';
+    height: 75px;
+    padding: 54px 27px;
+    position: absolute;
+    width: 75px;
+    z-index: -1; }
+
+.filter {
+  background: #F4F4F4;
+  border: none;
+  color: #9B9B9B;
+  font: italic 14px Roboto-Italic;
+  height: 38px;
+  width: 238px;
+  padding-left: 12px; }
+
+.filter-margin {
+  margin-right: 28px; }
+
+.search::after {
+  align-content: center;
+  background: url("./search.svg") no-repeat;
+  background-color: #A5CD39;
+  content: '';
+  height: 24px;
+  justify-content: center;
+  padding: 7px;
+  position: absolute;
+  width: 24px; }
+
+.display-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 722px;
+  padding-top: 143px; }
