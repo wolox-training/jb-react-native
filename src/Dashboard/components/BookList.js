@@ -13,7 +13,6 @@ export default class BooksList extends Component {
   
   render() {
     const books = this.props.books;
-    console.log(books);
     return (
       <div className="grid">{books.map(this.renderBook)}</div>
     );
