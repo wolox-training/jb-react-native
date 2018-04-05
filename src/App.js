@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 import './Dashboard';
 import Dashboard from './Dashboard';
 
