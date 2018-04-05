@@ -2,60 +2,36 @@ import React, { Component } from 'react';
 import books from './books';
 import './style.css';
 import logo from '../assets/search.svg';
-
-class BooksList extends Component {
-  render() {
-    const books = this.props.books;
-    const listItems = books.map((books) =>
-      <div key={books.id}>
-        <img alt="" className="book-logo" src={books.image_url} />
-        <h2 className="book-title">{books.title}</h2>
-        <p className="book-author">{books.author}</p>
-      </div>
-    );
-
-    return (
-      <div className="grid">{listItems}</div>
-    );
-  }
-}
+import BooksList from './components/BookList';
 
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: '',
-      filter: ''
-    };
-
-    this.handleSelectChange = this.handleSelectChange.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleSelectChange(event) {
+  state = {
+    value: '',
+    filter: '',
+    submittedValue: '',
+    submittedFilter: ''
+  }  
+  
+  handleSelectChange = (event) => {
     this.setState({ filter: event.target.value});
   }
 
-  handleInputChange(event) {
+  handleInputChange = (event) => {
     this.setState({ value: event.target.value});
   }
 
-  handleClick(event) {
-    if (event.key === 'Enter' | event.type === "click") {
-      var updatedList = books;
-      
-      if (this.state.filter !== '') {
-        updatedList = updatedList.filter (book => 
-            book[this.state.filter].toLowerCase().search(this.state.value.toLowerCase()) !== -1);
-      }
-
-      this.setState({items: updatedList});
+  handleClick = (event) => {
+    if (event.key === 'Enter' | event.type === 'click') {
+      this.setState({submittedValue: this.state.value, submittedFilter: this.state.filter });    
     }
   }
 
-  componentWillMount() {
-    this.setState({items: books});
+  filterList() {
+    if (this.state.submittedFilter === '') {
+      return books;
+    }
+    
+    return books.filter (book => book[this.state.submittedFilter].toLowerCase().includes(this.state.submittedValue.toLowerCase()));
   }
 
   render() {
@@ -72,7 +48,7 @@ class Dashboard extends Component {
             <button className="search" onClick={this.handleClick}><img src={logo} alt="logo"/></button>
           </div>
         </div>
-        <BooksList books={this.state.items}/>
+        <BooksList books={this.filterList()}/>
       </div>
     );
   }
