@@ -15,25 +15,23 @@
   font: $text-small Roboto-Regular;
 }
 
+.no-img {
+  background: url(../assets/default_book.svg) center no-repeat;
+  background-color: $alto;
+  content: '';
+  height: $not-found-img-book;
+  padding: 54px 27px;
+  width: $not-found-img-book;
+  z-index: -1;
+}
+
 .grid {
   display: grid;
   grid-gap: 65px 70px;
   grid-template-columns: repeat(4, 128px);
   justify-content: center;
   padding: 65px 0;
-  position: relative;
   text-align: left;
-
-  & > ::before {
-    background: url(../assets/default_book.svg) center no-repeat;
-    background-color: $alto;
-    content: '';
-    height: $not-found-img-book;
-    padding: 54px 27px;
-    position: absolute;
-    width: $not-found-img-book;
-    z-index: -1;
-  }
 }
 
 .filter {

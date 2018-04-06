@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import BookImg from './BookImg'
 
 export default class BooksList extends Component {
   renderBook(book) {
     return (
       <div key={book.id}>
-        <img alt="" className="book-logo" src={book.image_url} />
+        <BookImg src={book.image_url} classNameImg={"book-logo"} classNameNoImg={"no-img"} />
         <h2 className="book-title">{book.title}</h2>
         <p className="book-author">{book.author}</p>
       </div>
