@@ -1,0 +1,10 @@
+@import 'src/variables/colors';
+@import 'src/variables/sizes';
+
+.book-title {
+  font: bold $text-medium Roboto-Bold;
+}
+
+.book-author {
+  font: $text-small Roboto-Regular;
+}

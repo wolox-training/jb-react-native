@@ -1,0 +1,137 @@
+@import 'src/variables/colors';
+@import 'src/variables/sizes';
+
+.book-img {
+  height: $book-img-height;
+  padding-right: 21px;
+  width: $book-img-width;
+}
+
+%img-url {
+  background: url(../../assets/default_book.svg) center no-repeat;
+  background-color: $alto;
+  content: '';
+}
+
+.book-no-img {
+  background-size: 111px 111px;
+  height: $not-found-img-book;
+  padding: 98px 58px;
+  width: $not-found-img-book;
+  z-index: -1;
+  margin-right: 21px;
+  @extend %img-url;
+}
+
+.detail {
+  padding-top: 143px;
+  @extend %container;
+}
+
+.max-width {
+  width: 563px;
+}
+
+%container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: auto;
+  
+  &::after {
+    border-bottom: 2px solid $cerulean;
+    content: '';
+    margin-bottom: 35px;
+    padding-top: 20px;
+    width: 100%;
+  } 
+}
+
+.no-border {
+  &::after {
+    border-bottom: none;
+  }
+}
+
+%font-type {
+  font: bold $text-big Roboto-Bold;
+  margin: 0;
+}
+
+.sugestions { 
+  flex-direction: column;
+  @extend %container;
+}
+
+.title {
+  @extend %font-type;
+}
+
+.title-color {
+  color: $atlantis;
+  @extend %font-type;
+}
+
+.subtitle {
+  font: $text-medium-big Roboto-Regular;
+  margin: 0;
+  padding-top: 10px;
+}
+
+.descrip {
+  color: $dusty-gray;
+  font: $text-medium Roboto-Regular;
+  margin: 0;
+  padding: 18px 0 64px 0;
+  width: $descrip-width;
+}
+
+.rent-button {
+  background-color: $cerulean; 
+  border: none;
+  color: $white;
+  height: $button-height;
+  width: $button-width; 
+  @extend %font-type;
+}
+
+.extra-padding {
+  padding-top: 22px; 
+}
+
+.book-sugestion {
+  background-size: 55px 55px;
+  height: $book-sugestion-height;
+  margin-right: 54px; 
+  padding: 15px 6px;
+  width: $book-sugestion-width;
+  @extend %img-url;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  max-width: 800px;
+  padding-left: 40px; 
+}
+
+.comments {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 25px; 
+}
+
+.profile-img {
+  background: $dusty-gray;
+  border-radius: 100%; 
+  height: 40px;
+  margin-right: 16px;
+  width: 40px;
+}
+
+.volver {
+  font: $text-small Roboto-Regular;
+  margin: 34px;
+  text-decoration: none;
+}

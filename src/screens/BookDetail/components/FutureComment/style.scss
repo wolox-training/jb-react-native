@@ -1,0 +1,17 @@
+@import 'src/variables/colors';
+@import 'src/variables/sizes';
+
+.send-button {
+  background-color: $atlantis;
+  border: none;
+  color: $white;
+  font: bold $text-big Roboto-Bold;
+  height: $button-height;
+  margin: 0;
+  width: $button-width; 
+}
+
+.comment-text {
+  height: $comment-height;
+  width: $comment-width;
+}

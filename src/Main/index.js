@@ -1,7 +1,7 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import Dashboard from '../Dashboard';
-import BookDetail from '../BookDetail';
+import Dashboard from '../screens/Dashboard';
+import BookDetail from '../screens/BookDetail';
+import { Switch, Route, Redirect } from 'react-router-dom'; 
 
 const Main = () => (
   <main>
