@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 class BookDetail extends Component {
   render() {
-    let bookSelected =  books.find (book => book.id === parseInt(this.props.match.params.id, 10));
+    const bookSelected =  books.find (book => book.id === parseInt(this.props.match.params.id, 10));
     
     if (!bookSelected) {
       return <div>Sorry, but the book was not found</div>
