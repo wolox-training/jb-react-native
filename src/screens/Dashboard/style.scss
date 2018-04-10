@@ -1,0 +1,32 @@
+@import 'src/variables/colors';
+@import 'src/variables/sizes';
+
+.filter {
+  background: $wild-sand;
+  border: none;
+  color: $dusty-gray;
+  font: italic $text-medium Roboto-Italic;
+  height: $filter-height;
+  padding-left: 12px;
+  width: $filter-width;
+}
+
+.filter-margin {
+  margin-right: 28px;
+}
+
+.search {
+  background-color: $atlantis;
+  border: none;
+  height: $search-logo; 
+  position: absolute;
+  width: $search-logo;
+}
+
+.display-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 722px;
+  padding-top: 143px;
+}

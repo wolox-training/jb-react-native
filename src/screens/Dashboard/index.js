@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import books from './books';
+import books from '../../constants/books';
 import './style.css';
-import logo from '../assets/search.svg';
-import BooksList from './components/BookList';
+import logo from '../../assets/search.svg';
+import BooksList from './components/BookList/index';
 
 class Dashboard extends Component {
   state = {
