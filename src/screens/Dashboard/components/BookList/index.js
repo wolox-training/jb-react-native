@@ -6,9 +6,9 @@ import './style.css';
 export default class BooksList extends Component {
   renderBook(book) {
     return (
-      <Link className="book-link" to={`/books/${book.id}`}>
-        <div key={book.id}>
-          <BookImg src={book.image_url} classNameImg={"book-logo"} classNameNoImg={"no-img"} />
+      <Link className="book-link" to={`/books/${book.id}`} key={book.id}>
+        <div>
+          <BookImg src={book.image_url} classNameImg="book-logo" classNameNoImg="no-img" />
           <h2 className="book-title">{book.title}</h2>
           <p className="book-author">{book.author}</p>
         </div>
@@ -17,9 +17,8 @@ export default class BooksList extends Component {
   }
   
   render() {
-    const books = this.props.books;
     return (
-      <div className="grid">{books.map(this.renderBook)}</div>
+      <div className="grid">{this.props.books.map(this.renderBook)}</div>
     );
   }
 }

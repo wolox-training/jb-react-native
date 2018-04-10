@@ -3,7 +3,7 @@ import './style.css';
 import profile from '../../../../assets/search.svg';
 import '../../../../style.css';
 
-export default class Comment extends Component {
+class FutureComment extends Component {
   render() {
     return (
       <div className="comments">
@@ -19,3 +19,5 @@ export default class Comment extends Component {
     );
   }
 }
+
+export default FutureComment;
