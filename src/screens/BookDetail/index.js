@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import books from '../../constants/books';
 import './style.css';
+import '../../style.css';
 import BookImg from '../../components/BookImg';
 import Comment from './components/Comment';
 import FutureComment from './components/FutureComment';

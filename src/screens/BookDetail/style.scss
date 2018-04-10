@@ -86,15 +86,6 @@
   width: $descrip-width;
 }
 
-.rent-button {
-  background-color: $cerulean; 
-  border: none;
-  color: $white;
-  height: $button-height;
-  width: $button-width; 
-  @extend %font-type;
-}
-
 .extra-padding {
   padding-top: 22px; 
 }

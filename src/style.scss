@@ -8,3 +8,12 @@
 .book-author {
   font: $text-small Roboto-Regular;
 }
+
+.rent-button {
+  background-color: $cerulean; 
+  border: none;
+  color: $white;
+  font: bold $text-big Roboto-Bold;
+  height: $button-height;
+  width: $button-width; 
+}
