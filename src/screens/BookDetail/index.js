@@ -6,18 +6,27 @@ import BookImg from '../../components/BookImg';
 import Comment from './components/Comment';
 import FutureComment from './components/FutureComment';
 import { Link } from 'react-router-dom'; 
+import profile from '../../assets/search.svg';
 
 class BookDetail extends Component {
   render() {
     const bookSelected =  books.find (book => book.id === parseInt(this.props.match.params.id, 10));
     
     if (!bookSelected) {
-      return <div>Sorry, but the book was not found</div>
+      return (
+        <div>
+          <Link className="return" to='/dashboard'>&lt; Volver</Link>
+          <div className="no-book">
+            <img className="profile-img" alt="img" src={profile}/> 
+            <h2>Disculpe, el libro buscado no se ha podido encontrar</h2>
+          </div>
+        </div>
+      ) 
     }
 
     return (
       <div>
-        <Link className="return" to='/'>&lt; Volver</Link>
+        <Link className="return" to='/dashboard'>&lt; Volver</Link>
         <div className="detail">
         <div>
           <BookImg alt="img" src={bookSelected.image_url} classNameImg="book-img" classNameNoImg="book-no-img" />

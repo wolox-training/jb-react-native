@@ -16,4 +16,9 @@
   font: bold $text-big Roboto-Bold;
   height: $button-height;
   width: $button-width; 
+
+  &:disabled {
+    background-color: $wild-sand;
+    color: $dusty-gray;
+  }
 }

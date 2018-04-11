@@ -3,13 +3,14 @@ import Login from '../screens/Login';
 import Dashboard from '../screens/Dashboard';
 import BookDetail from '../screens/BookDetail';
 import { Switch, Route, Redirect } from 'react-router-dom'; 
+import AuthRoute from './components/AuthRoute';
 
 const Main = () => (
   <main>
     <Switch>
-      <Route path='/login' component={Login}/>
-      <Route exact path='/dashboard' component={Dashboard}/>
-      <Route path='/books/:id' component={BookDetail}/>
+      <AuthRoute login path='/login' component={Login}/>
+      <AuthRoute authenticated exact path='/dashboard' component={Dashboard}/>
+      <AuthRoute authenticated path='/books/:id' component={BookDetail} />
       <Redirect from="/" to="/login" />
     </Switch>
   </main> 

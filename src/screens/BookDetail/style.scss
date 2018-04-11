@@ -107,10 +107,14 @@
   padding-left: 40px; 
 }
 
-.comments {
+%display-row {
   display: flex;
   flex-direction: row;
+}
+
+.comments {
   padding-bottom: 25px; 
+  @extend %display-row;
 }
 
 .profile-img {
@@ -125,4 +129,11 @@
   font: $text-small Roboto-Regular;
   margin: 34px;
   text-decoration: none;
+}
+
+.no-book {
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  @extend %display-row;
 }
