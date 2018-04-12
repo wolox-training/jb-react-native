@@ -2,7 +2,7 @@ import React from 'react';
 import Login from '../screens/Login';
 import Dashboard from '../screens/Dashboard';
 import BookDetail from '../screens/BookDetail';
-import { Switch, Route, Redirect } from 'react-router-dom'; 
+import { Switch, Redirect } from 'react-router-dom'; 
 import AuthRoute from './components/AuthRoute';
 
 const Main = () => (

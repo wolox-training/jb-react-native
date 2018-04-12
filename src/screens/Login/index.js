@@ -3,8 +3,8 @@ import './style.css';
 import '../../style.css';
 import wbooks from '../../assets/wbooks_logo.svg';
 import FormErrors from './components/FormErrors';
-import { Link } from 'react-router-dom'; 
 import axios from 'axios';
+import { Redirect } from 'react-router-dom'; 
 
 class Login extends Component {
   state = {
@@ -13,7 +13,8 @@ class Login extends Component {
     formErrors: {email: '', pass: ''},
     emailValid: false,
     passValid: false,
-    formValid: false
+    formValid: false,
+    login: false
   }  
   
   handleUserInput = (e) => {
@@ -22,20 +23,6 @@ class Login extends Component {
     this.setState({[name]: value},
                    () => { this.validateField(name, value) 
                   });              
-  }
-
-  submit = (event) => {
-    axios.post('https://wbooks-api-stage.herokuapp.com/api/v1/users/sessions', {
-      email: this.state.email,
-      password: this.state.pass
-    })
-    .then(function (response) {
-      localStorage.setItem('isAuthenticated', 'true');
-    })
-    .catch = (error) => {
-      let fieldValidationErrors = {user: 'Pass incorrect'}
-      this.setState({formErrors: fieldValidationErrors}, this.validateForm);    
-    };
   }
 
   validateField(fieldName, value) {
@@ -69,19 +56,37 @@ class Login extends Component {
     localStorage.setItem('isAuthenticated', this.state.formValid);
   }
 
+  handleSubmit = (event) => {
+      event.preventDefault();
+      axios.post('https://wbooks-api-stage.herokuapp.com/api/v1/users/sessions', {
+      email: this.state.email,
+      password: this.state.pass
+    })
+    .then( (response) => {
+      localStorage.setItem('isAuthenticated', 'true');
+      this.setState({login: true});   
+    })
+    .catch( (error) => {
+      let fieldValidationErrors = {user: 'Pass incorrect'}
+      this.setState({formErrors: fieldValidationErrors}, this.validateForm);    
+    });
+  }
+
   render() {
+    if (this.state.login) {
+      return <Redirect to="/dashboard"/>
+    }
+
     return (
-      <div className="login">  
+      <form className="login" onSubmit={this.handleSubmit}>  
         <img alt="wbooks" src={wbooks}/> 
         <p className="help">Email</p>
         <input className="input" name="email" value={this.state.email} onChange={this.handleUserInput}></input>
         <p className="help">Contrase&ntilde;a</p>
         <input className="input" type="password" name="pass" value={this.state.pass} onChange={this.handleUserInput}></input>
-        <Link to={'/dashboard'}> 
-          <button className="rent-button" onClick={this.submit} disabled={!this.state.formValid}>Ingresar</button>
-        </Link>
+        <button type="submit" className="rent-button" disabled={!this.state.formValid}>Ingresar</button>
         <FormErrors formErrors={this.state.formErrors} />
-      </div>
+      </form>
     );
   }
 }
