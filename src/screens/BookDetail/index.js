@@ -26,19 +26,19 @@ class BookDetail extends Component {
 
     return (
       <div>
-        <Link className="return" to='/dashboard'>&lt; Volver</Link>
+        <Link className="no-decoration" to='/dashboard'><p className="return" >&lt; Volver</p></Link>
         <div className="detail">
-        <div>
-          <BookImg alt="img" src={bookSelected.image_url} classNameImg="book-img" classNameNoImg="book-no-img" />
-        </div>
-        <div className="max-width">
-          <h2 className="title">{bookSelected.title}</h2>
-          <h3 className="subtitle">{bookSelected.author}</h3>
-          <h3 className="subtitle extra-padding">{bookSelected.year}</h3>
-          <h3 className="subtitle">{bookSelected.genre}</h3>
-          <p className="descrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-          <button className="rent-button">Alquilar</button>          
-        </div>
+          <div>
+            <BookImg alt="img" src={bookSelected.image_url} classNameImg="book-img" classNameNoImg="book-no-img" />
+          </div>
+          <div className="max-width">
+            <h2 className="title">{bookSelected.title}</h2>
+            <h3 className="subtitle">{bookSelected.author}</h3>
+            <h3 className="subtitle extra-padding">{bookSelected.year}</h3>
+            <h3 className="subtitle">{bookSelected.genre}</h3>
+            <p className="descrip">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <button className="rent-button">Alquilar</button>          
+          </div>
         </div>
         <div className="sugestions">
           <div>

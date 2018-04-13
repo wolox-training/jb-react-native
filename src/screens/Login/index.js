@@ -3,8 +3,8 @@ import './style.css';
 import '../../style.css';
 import wbooks from '../../assets/wbooks_logo.svg';
 import FormErrors from './components/FormErrors';
-import axios from 'axios';
 import { Redirect } from 'react-router-dom'; 
+import axios from '../../config/api'
 
 class Login extends Component {
   state = {
@@ -52,18 +52,15 @@ class Login extends Component {
     this.setState({formValid: this.state.emailValid && this.state.passwordValid});
   }
 
-  componentWillMount() {
-    localStorage.setItem('isAuthenticated', this.state.formValid);
-  }
-
   handleSubmit = (event) => {
       event.preventDefault();
-      axios.post('https://wbooks-api-stage.herokuapp.com/api/v1/users/sessions', {
+      axios.post('/users/sessions', {
       email: this.state.email,
       password: this.state.pass
     })
     .then( (response) => {
-      localStorage.setItem('isAuthenticated', 'true');
+      localStorage.setItem('isAuthenticated', response.data.access_token);
+      axios.defaults.headers.common['Authorization'] = response.data.access_token;
       this.setState({login: true});   
     })
     .catch( (error) => {

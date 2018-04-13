@@ -1,21 +1,15 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom'; 
 
-const AuthRoute = ({ component: Component, login, authenticated, ...rest }) => {
-  let bool = 'true';
-  let pathname = '/login'; 
-
-  if (login) {
-    bool = 'false';
-    pathname = '/dashboard'
-  }
-
+const AuthRoute = ({ component: Component, authenticated, notAuthenticated, login , ...rest }) => {
   return <Route {...rest} render={(props) => (
-    localStorage.getItem('isAuthenticated') === bool?
+    (!!authenticated) === !!localStorage.getItem('isAuthenticated') ?
       <Component {...props} />
-      : <Redirect to={{
-          pathname,
-          state: { from: props.location }
+      : (!!login) === !!localStorage.getItem('isAuthenticated') && !(!!authenticated) ? 
+      <Redirect to={{
+          pathname: '/dashbaord' 
+        }} /> : <Redirect to={{
+          pathname: '/login'
         }} />
   )} />
 }

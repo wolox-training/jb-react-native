@@ -24,7 +24,7 @@
 }
 
 .detail {
-  padding-top: 143px;
+  padding-top: 35px;
   @extend %container;
 }
 
@@ -125,10 +125,13 @@
   width: 40px;
 }
 
+.no-decoration {
+  text-decoration: none;
+}
+
 .return {
   font: $text-small Roboto-Regular;
   margin: 34px;
-  text-decoration: none;
 }
 
 .no-book {
