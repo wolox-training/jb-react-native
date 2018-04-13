@@ -4,7 +4,7 @@ import '../../style.css';
 import wbooks from '../../assets/wbooks_logo.svg';
 import FormErrors from './components/FormErrors';
 import { Redirect } from 'react-router-dom'; 
-import axios from '../../config/api'
+import axios from '../../config/api';
 
 class Login extends Component {
   state = {
