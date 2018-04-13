@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import books from '../../constants/books';
 import './style.css';
 import logo from '../../assets/search.svg';
 import BooksList from './components/BookList/index';
+import axios from '../../config/api'
 
 class Dashboard extends Component {
   state = {
     value: '',
     filter: '',
     submittedValue: '',
-    submittedFilter: ''
+    submittedFilter: '',
+    books: []
   }  
   
   handleSelectChange = (event) => {
@@ -26,12 +27,23 @@ class Dashboard extends Component {
     }
   }
 
+  componentDidMount() {
+    axios.get('/books')
+    .then((response)=>{
+      this.setState( () => {
+        return {
+          books: response.data
+        }
+      })}
+    );
+  }
+
   filterList() {
     if (this.state.submittedFilter === '') {
-      return books;
+      return this.state.books;
     }
     
-    return books.filter (book => book[this.state.submittedFilter].toLowerCase().includes(this.state.submittedValue.toLowerCase()));
+    return this.state.books.filter (book => book[this.state.submittedFilter].toLowerCase().includes(this.state.submittedValue.toLowerCase()));
   }
 
   render() {

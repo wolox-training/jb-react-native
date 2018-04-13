@@ -3,7 +3,7 @@ import BookImg from '../../../../components/BookImg';
 import { Link } from 'react-router-dom'; 
 import './style.css';
 
-export default class BooksList extends Component {
+class BooksList extends Component {
   renderBook(book) {
     return (
       <Link className="book-link" to={`/books/${book.id}`} key={book.id}>
@@ -22,3 +22,5 @@ export default class BooksList extends Component {
     );
   }
 }
+
+export default BooksList;

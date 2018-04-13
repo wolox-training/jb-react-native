@@ -4,7 +4,7 @@ import '../../style.css';
 import wbooks from '../../assets/wbooks_logo.svg';
 import FormErrors from './components/FormErrors';
 import { Redirect } from 'react-router-dom'; 
-import axios from '../../config/api'
+import axios from '../../config/api';
 
 class Login extends Component {
   state = {
@@ -60,6 +60,7 @@ class Login extends Component {
     })
     .then( (response) => {
       localStorage.setItem('isAuthenticated', response.data.access_token);
+      axios.defaults.headers.common['Authorization'] = response.data.access_token;
       this.setState({login: true});   
     })
     .catch( (error) => {
