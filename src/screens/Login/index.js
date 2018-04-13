@@ -60,7 +60,6 @@ class Login extends Component {
     })
     .then( (response) => {
       localStorage.setItem('isAuthenticated', response.data.access_token);
-      axios.defaults.headers.common['Authorization'] = response.data.access_token;
       this.setState({login: true});   
     })
     .catch( (error) => {
