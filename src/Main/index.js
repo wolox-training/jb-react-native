@@ -8,7 +8,7 @@ import AuthRoute from './components/AuthRoute';
 const Main = () => (
   <main>
     <Switch>
-      <AuthRoute login path='/login' component={Login}/>
+      <AuthRoute notAuthenticated path='/login' component={Login}/>
       <AuthRoute authenticated exact path='/dashboard' component={Dashboard}/>
       <AuthRoute authenticated path='/books/:id' component={BookDetail} />
       <Redirect from="/" to="/dashboard" />
