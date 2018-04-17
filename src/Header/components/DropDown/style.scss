@@ -13,24 +13,6 @@
   margin: 10px;
 }
 
-%font {
-  font: $text-small Roboto-Regular;
-}
-
-.notif-title {
-  font-weight: bold;
-  @extend %font;
-}
-
-.notif-subtitle {
-  @extend %font;
-}
-
-.notif-descrip {
-  font-style: italic;
-  @extend %font;
-}
-
 %no-format {
   border: none;
   background-color: $white;

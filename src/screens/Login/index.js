@@ -62,8 +62,8 @@ class Login extends Component {
       localStorage.setItem('isAuthenticated', response.data.access_token);
       this.setState({login: true});   
     })
-    .catch( (error) => {
-      let fieldValidationErrors = {user: 'Pass incorrect'}
+    .catch( () => {
+      const fieldValidationErrors = {user: 'Pass incorrect'}
       this.setState({formErrors: fieldValidationErrors}, this.validateForm);    
     });
   }

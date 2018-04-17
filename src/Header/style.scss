@@ -31,3 +31,15 @@
   display: flex;
   flex-direction: row;
 }
+
+.font-standar {
+  font: $text-small Roboto-Regular;
+}
+
+.notif-title {
+  font-weight: bold;
+}
+
+.notif-descrip {
+  font-style: italic;
+}

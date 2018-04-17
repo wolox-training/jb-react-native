@@ -19,7 +19,7 @@ class DropDown extends Component {
         </button>
         {
           this.checkVisibility() && (
-            <div className={"menu " + this.props.row}>
+            <div className={`menu ${this.props.row}`}>
               {this.props.children}
             </div>
           )
