@@ -18,7 +18,7 @@ class Filters extends Component {
 
   handleClick = (event) => {
     if (event.key === 'Enter' | event.type === 'click') {
-      this.props.onSubmitFilters(this.state.value, this.state.filter);   
+      this.props.onSubmitFilters(this.state.value,this.state.filter);   
     }
   }
   

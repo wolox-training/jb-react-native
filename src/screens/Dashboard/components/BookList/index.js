@@ -1,28 +1,21 @@
 import { connect } from 'react-redux';
 import BookList from './layout';
-import { getBooks } from '../../../../redux/MyReducer/actions';
-import axios from '../../../../config/api';
+import { fetchBooks } from '../../../../redux/MyReducer/actions';
 
 const getVisibleBooks = (books, submittedFilter, submittedValue) => {
   if (submittedFilter === '') {
     return books;
   }
-  
+   
   return books.filter(book => book[submittedFilter].toLowerCase().includes(submittedValue.toLowerCase()));
 }
 
 const mapStateToProps = state => ({
-  books: getVisibleBooks(state.bookList.books, state.bookList.visibilityFilter)
+  books: getVisibleBooks(state.bookList.books.books, state.bookList.visibilityFilter.submittedFilter, state.bookList.visibilityFilter.submittedValue)
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  getBooks: () => {
-    axios.get('/books')
-    .then( (response) => {
-      console.log(getBooks(response.data));
-      dispatch(getBooks(response.data))
-    })
-  }
+  getBooks: () => dispatch(fetchBooks())
 })
 
 export default connect(

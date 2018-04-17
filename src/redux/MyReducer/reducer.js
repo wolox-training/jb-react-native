@@ -1,16 +1,14 @@
 import { combineReducers } from 'redux'; 
 
 const initialState = {
-  visibilityFilter: {
     submittedValue: '',
     submittedFilter: ''
-  }
 }
 
 const visibilityFilter = (state = initialState, action) => {
   switch (action.type) {
     case 'SUBMIT_FILTERS':
-      return {
+      return {        
         submittedValue: action.value,
         submittedFilter: action.filter
       };
@@ -19,7 +17,7 @@ const visibilityFilter = (state = initialState, action) => {
   }
 }
 
-const books = (state = [], action) => {
+const books = (state = { books: [] }, action) => {
   switch (action.type) {
     case 'GET_BOOKS':
       return {
@@ -33,6 +31,6 @@ const books = (state = [], action) => {
 const bookList = combineReducers({
   visibilityFilter,
   books
-});
+}); 
 
 export default bookList;

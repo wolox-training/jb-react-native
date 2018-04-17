@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
 import Filters from './layout';
-import { submitFilters } from '../../../../redux/MyReducer/actions';
+import { setFilters } from '../../../../redux/MyReducer/actions';
 
 const mapDispatchToProps = dispatch => ({
   onSubmitFilters: (value, filter) => {
-    dispatch(submitFilters(value, filter));
+    dispatch(setFilters(filter,value));
   }
 });
 
 export default connect(
-  undefined,
+  null,
   mapDispatchToProps
 )(Filters);

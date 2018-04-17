@@ -8,7 +8,7 @@ class BooksList extends Component {
     this.props.getBooks();    
   }
   
-  renderBook(book) {
+  renderBook = (book) => {
     return (
       <Link className="book-link" to={`/books/${book.id}`} key={book.id}>
         <div>

@@ -1,10 +1,12 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import bookList from './MyReducer/reducer'
 
 const rootReducer = combineReducers({
   bookList
 })
 
-const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const middleware = applyMiddleware(thunk);
+const store = createStore(rootReducer, middleware);
 
 export default store;
