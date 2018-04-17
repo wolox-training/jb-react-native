@@ -1,26 +1,24 @@
-import React, { Component } from 'react';
-import BookImg from '../../../../components/BookImg';
-import { Link } from 'react-router-dom'; 
-import './style.css';
+import { connect } from 'react-redux';
+import BookList from './layout';
+import { fetchBooks } from '../../../../redux/MyReducer/actions';
 
-class BooksList extends Component {
-  renderBook(book) {
-    return (
-      <Link className="book-link" to={`/books/${book.id}`} key={book.id}>
-        <div>
-          <BookImg src={book.image_url} classNameImg="book-logo" classNameNoImg="no-img" />
-          <h2 className="book-title">{book.title}</h2>
-          <p className="book-author">{book.author}</p>
-        </div>
-      </Link>
-    )
+const getVisibleBooks = (books, submittedFilter, submittedValue) => {
+  if (submittedFilter === '') {
+    return books;
   }
-  
-  render() {
-    return (
-      <div className="grid">{this.props.books.map(this.renderBook)}</div>
-    );
-  }
+   
+  return books.filter(book => book[submittedFilter].toLowerCase().includes(submittedValue.toLowerCase()));
 }
 
-export default BooksList;
+const mapStateToProps = state => ({
+  books: getVisibleBooks(state.bookList.books.books, state.bookList.visibilityFilter.submittedFilter, state.bookList.visibilityFilter.submittedValue)
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  getBooks: () => dispatch(fetchBooks())
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(BookList);
