@@ -4,67 +4,56 @@ import '../../style.css';
 import wbooks from '../../assets/wbooks_logo.svg';
 import FormErrors from './components/FormErrors';
 import { Redirect } from 'react-router-dom'; 
-import axios from '../../config/api'
+import { login } from '../../services/AuthService';
 
 class Login extends Component {
   state = {
     email: '',
     pass: '',
-    formErrors: {email: '', pass: ''},
+    submitError: '',
     emailValid: false,
     passValid: false,
-    formValid: false,
     login: false
   }  
   
   handleUserInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    this.setState({[name]: value},
-                   () => { this.validateField(name, value) 
-                  });              
+
+    this.setState({ [name]: value,
+                    [`${name}Valid`]: this.isFieldValid(name, value)
+                  });
   }
 
-  validateField(fieldName, value) {
-    let fieldValidationErrors = this.state.formErrors;
-    let emailValid = this.state.emailValid;
-    let passwordValid = this.state.passwordValid;
-  
+  isFieldValid(fieldName, value) {
     switch(fieldName) {
       case 'email':
-        emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-        fieldValidationErrors.email = emailValid ? '' : 'El email ingresado no tiene un formato correcto';
-        break;
+        return !!value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
       case 'pass':
-        passwordValid = (value.length >= 8) & (value.length <= 52);
-        fieldValidationErrors.password = passwordValid ? '': 'La contraseña debe tener entre 8 y 54 caracteres';
-        break;
+        return (value.length >= 8) & (value.length <= 52);
       default:
         break;
     }
-    this.setState({formErrors: fieldValidationErrors,
-                    emailValid: emailValid,
-                    passwordValid: passwordValid
-                  }, this.validateForm);
   }
 
-  validateForm() {
-    this.setState({formValid: this.state.emailValid && this.state.passwordValid});
+  formErrors() {
+    return {
+      email: this.state.emailValid ? '' : 'El campo email no es correcto',
+      pass: this.state.passValid ? '' : 'El campo contraseña no es correcto',      
+    };
+  }
+
+  formValid() {
+    return (this.state.emailValid && this.state.passValid);
   }
 
   handleSubmit = (event) => {
-      event.preventDefault();
-      axios.post('/users/sessions', {
-      email: this.state.email,
-      password: this.state.pass
-    })
-    .then( (response) => {
-      localStorage.setItem('isAuthenticated', response.data.access_token);
-      this.setState({login: true});   
-    })
-    .catch( () => {
-      const fieldValidationErrors = {user: 'Pass incorrect'}
-      this.setState({formErrors: fieldValidationErrors}, this.validateForm);    
+    event.preventDefault();
+    login(this.state.email, this.state.pass)
+    .then(() => {
+      this.setState({login: true});
+    }).catch(() => {
+      this.setState({submitError: 'Pass incorrect'});
     });
   }
 
@@ -80,8 +69,11 @@ class Login extends Component {
         <input className="input" name="email" value={this.state.email} onChange={this.handleUserInput}></input>
         <p className="help">Contrase&ntilde;a</p>
         <input className="input" type="password" name="pass" value={this.state.pass} onChange={this.handleUserInput}></input>
-        <button type="submit" className="rent-button" disabled={!this.state.formValid}>Ingresar</button>
-        <FormErrors formErrors={this.state.formErrors} />
+        <button type="submit" className="rent-button" disabled={!this.formValid()}>Ingresar</button>
+        <FormErrors formErrors={{
+          ...this.formErrors(),
+          submitError: this.state.submitError
+        }} />
       </form>
     );
   }
