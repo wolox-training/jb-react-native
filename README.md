@@ -1,1 +1,0 @@
-# jb-react-native
