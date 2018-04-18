@@ -1,0 +1,45 @@
+@import 'src/variables/colors';
+@import 'src/variables/sizes';
+
+.navbar-img {
+  height: 30px;
+  width: 30px;
+  margin: 26px 15px;
+}
+
+.logo {
+  height: 42px;
+  padding-left: 34px; 
+  width: 182px;  
+}
+
+.navbar {
+  align-items: center;
+  box-shadow: 0 0 15px 0 $alto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.img {
+  height: 40px;
+  width: 40px;
+  margin: 26px 15px;
+}
+
+.display{
+  display: flex;
+  flex-direction: row;
+}
+
+.font-standar {
+  font: $text-small Roboto-Regular;
+}
+
+.notif-title {
+  font-weight: bold;
+}
+
+.notif-descrip {
+  font-style: italic;
+}

@@ -24,7 +24,7 @@
 }
 
 .detail {
-  padding-top: 143px;
+  padding-top: 35px;
   @extend %container;
 }
 
@@ -86,15 +86,6 @@
   width: $descrip-width;
 }
 
-.rent-button {
-  background-color: $cerulean; 
-  border: none;
-  color: $white;
-  height: $button-height;
-  width: $button-width; 
-  @extend %font-type;
-}
-
 .extra-padding {
   padding-top: 22px; 
 }
@@ -116,10 +107,14 @@
   padding-left: 40px; 
 }
 
-.comments {
+%display-row {
   display: flex;
   flex-direction: row;
+}
+
+.comments {
   padding-bottom: 25px; 
+  @extend %display-row;
 }
 
 .profile-img {
@@ -130,8 +125,18 @@
   width: 40px;
 }
 
+.no-decoration {
+  text-decoration: none;
+}
+
 .return {
   font: $text-small Roboto-Regular;
   margin: 34px;
-  text-decoration: none;
+}
+
+.no-book {
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  @extend %display-row;
 }

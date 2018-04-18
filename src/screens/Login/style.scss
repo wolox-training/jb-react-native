@@ -1,0 +1,27 @@
+@import 'src/variables/colors';
+@import 'src/variables/sizes';
+
+.login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 200px auto;
+  max-width: 540px; 
+}
+
+.help {
+  align-self: flex-start; 
+  color: $dusty-gray;
+  font: $text-small Roboto-Regular;
+  margin: 0;
+  padding-top: 30px;
+}
+
+.input {
+  background-color: $wild-sand;
+  border: none;
+  height: 38px;
+  margin-bottom: 20px;
+  width: 100%;
+}
