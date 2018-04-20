@@ -2,7 +2,7 @@
 
 import { connect } from 'react-redux';
 import List from './layout';
-import { removeTodo } from '../../redux/Todos/actions'
+import { removeTodo } from '../../../../redux/Todos/actions'
 
 const mapStateToProps = state => {
   return {

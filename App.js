@@ -5,41 +5,39 @@
  */
 
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  ScrollView
-} from 'react-native';
-
 import './src/config/ReactotronConfig';
-import Footer from './src/components/Footer';
-import Title from './src/components/Title';
-import Input from './src/components/Input';
-import List from './src/components/List';
-import { Provider } from 'react-redux';
-import store from './src/redux/store';
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
+import Details from './src/screens/Details';
+import Home from './src/screens/Home';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Text } from 'react-native';
 
-type Props = {};
-export default class App extends Component<Props>{
+export default TabNavigator({
+    Home: { screen: Home },
+    Settings: { screen: Details },
+  }, {
+    navigationOptions: ({ navigation }) => ({
+      tabBarIcon: ({ focused, tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === 'Home') {
+          iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+        } else if (routeName === 'Settings') {
+          iconName = `ios-options${focused ? '' : '-outline'}`;
+        }
 
-  render() {
-    return (
-      <Provider store={store}>
-        <View style={styles.container}>
-          <ScrollView  stickyHeaderIndices={[0]}> 
-            <Title />
-            <Input />
-            <List />
-          </ScrollView>
-          <Footer />
-        </View>
-      </Provider>
-    );
+        return (
+          <Ionicons name={iconName} size={25} color={tintColor} />
+        ) 
+      },
+    }),
+    tabBarComponent: TabBarBottom,
+    tabBarPosition: 'bottom',
+    tabBarOptions: {
+      activeTintColor: 'tomato',
+      inactiveTintColor: 'gray',
+    },
+    animationEnabled: true,
+    swipeEnabled: false,
   }
-}
-
-const styles = StyleSheet.create({
-  container: {
-   flex: 1
-  },
-});
+);
