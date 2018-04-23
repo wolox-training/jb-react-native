@@ -5,7 +5,7 @@ import App from './App';
 const Main = ()=> {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Header</Text>
+      <Text style={styles.title}>My Awesome App</Text>
       <App />
     </View>
   )

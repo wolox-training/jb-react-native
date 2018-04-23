@@ -11,6 +11,7 @@ import Details from './src/screens/Details';
 import Home from './src/screens/Home';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Text } from 'react-native';
+import BookDetail from './src/screens/Details/components/BookDetail'
 
 export default TabNavigator({
     Home: { screen: Home },

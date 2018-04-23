@@ -2,17 +2,15 @@ import { AppRegistry, View, StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
   item: {
-    alignSelf: 'stretch',
-    justifyContent: 'space-between',
-    flexDirection: 'row', 
-    height: 100,
+    height: 150,
     paddingLeft: 20,
     paddingRight: 20,
+    flex:1,
+    flexDirection: 'row',
+    alignItems: 'center'
   },
-  finalItem: {
-    alignSelf: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row'
+  list: {
+    alignSelf: 'stretch'
   }
 })
 
